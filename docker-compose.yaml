@@ -1,0 +1,27 @@
+version: "3.8"
+
+services:
+  test:
+    build:
+      context: .
+    entrypoint: docker-entrypoint.sh
+    volumes:
+      - "/node_modules"
+    depends_on:
+      - chrome
+
+  chrome:
+    # stdin_open: true # docker run -i
+    # tty: true        # docker run -t
+    image: selenium/standalone-chrome:latest
+    hostname: chrome
+    ports:
+      - "4444:4444"
+      - "5900:5900"
+    networks:
+      default:
+        aliases:
+          - selenium
+    privileged: true
+    environment:
+      - CHOKIDAR_USEPOLLING=true
