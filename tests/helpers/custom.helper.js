@@ -1,4 +1,4 @@
-const Helper = codeceptHelper;
+const Helper = codecept_helper;
 
 class CustomHelper extends Helper {
   // Save current Browser logs

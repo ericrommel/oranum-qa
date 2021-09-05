@@ -71,83 +71,14 @@ The next step is install and build the project's dependencies. Just like _Git_ i
     $ cd path/to/oranum-qa
     $ npm build
 
-### Start Container
+### Start Container and Tests
 
 Docker and docker-compose should be installed first. [Tutorial here](https://docs.docker.com/install/).
 At the repo root run:
-$ docker-compose up --build
+$ docker-compose run test
 
-### Run
-
-If you want to run without docker, configure the application manually. This will require you to define a few variables and create the database.
-
-Note: The pipenv virtual environment should be done.
-
-Set the environment variables::
-
-    $ export FLASK_APP=backend/run
-    $ export FLASK_ENV=development
-    $ export FLASK_CONFIG=development
-
-Or on Windows cmd:: > set FLASK_APP=src > set FLASK_ENV=development > set FLASK_CONFIG=development
-
-Create the database::
-
-    $ flask db init
-    $ flask db migrate
-    $ flask db upgrade
-
-Run the application::
-
-    $ flask run
-
-Open http://127.0.0.1:5000 in a browser.
-
-Note: An _ADMIN_ user should be add first. After that, you can add questions. Check the next section for more details.
-
-### Tests
-
-In order to support the manual and automated tests, two requests were create to help using [Postman](https://www.postman.com/).
-Feel free to use any other tool for API testing.
-
-1. Add admin user # It will add a user that can add questions
-2. Add questions in bulk # It will populate the database with questions
-
-From Postman::
-
-- Import the collection file: postman/
-- Import the environment file: postman/
-
-Note: You can see the sample file to add questions in the [static folder](https://github.com/ericrommel/quizz-app/blob/master/backend/src/static/sample_questions.xlsx). This template should be used to add questions by this request.
-
-From Python code tests (unit tests)::
-
-    $ pytest
-
-Run with coverage report::
-
-    $ coverage run -m pytest
-    $ coverage report
-    $ coverage html  # open htmlcov/index.html in a browser
-
-### Kubernetes (K8s)
-
-The project is running on Google Cloud after k8s settings. You can check the project on the Internet accessing the link
-below in your browser:
-
-    http://35.205.34.26/
-
-The file quizz-app.yml contains the settings used.
-
-## About
-
-This project is part of [Exponential Ventures'](http://www.exponentialventures.com) challenge for their Full-Stack
-hire process sent in November 2020. The whole project includes to create the front-end part using React.
+Docker will build the container and after done, the 'test' service will be called.
 
 ## Author
 
 - [Eric Dantas](https://github.com/ericrommel)
-
-## License
-
-This project is licensed under the GNU License - see the [License](./LICENSE) file for details.
