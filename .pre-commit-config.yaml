@@ -7,20 +7,6 @@ repos:
     rev: "v2.3.2" # Use the sha or tag you want to point at
     hooks:
       - id: prettier
-  - repo: https://github.com/pre-commit/mirrors-eslint
-    rev: v8.0.0-beta.1
-    hooks:
-      - id: eslint
-        args: ["--ext=.js,.vue"]
-        files: (.+\.js$)|(.+\.vue$)
-        types: ["file"]
-        additional_dependencies:
-          - eslint
-          - eslint-config-google
-          - eslint-plugin-vue
-          - eslint-webpack-plugin
-          - babel-eslint
-          - vue-eslint-parser
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.0.1
     hooks:

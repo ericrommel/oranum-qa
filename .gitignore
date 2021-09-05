@@ -103,5 +103,8 @@ dist
 # TernJS port file
 .tern-port
 
-# Outputs
+# Outputs and reports
 output/
+output_folder/
+report/
+report_folder/

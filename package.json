@@ -1,21 +1,37 @@
 {
-    "name": "codeceptjs-tests",
-    "version": "0.1.0",
-    "private": true,
-    "scripts": {
-        "codeceptjs": "codeceptjs run --steps",
-        "codeceptjs:headless": "HEADLESS=true codeceptjs run --steps",
-        "codeceptjs:ui": "codecept-ui --app",
-        "codeceptjs:demo": "codeceptjs run --steps -c node_modules/@codeceptjs/examples",
-        "codeceptjs:demo:headless": "HEADLESS=true codeceptjs run --steps -c node_modules/@codeceptjs/examples",
-        "codeceptjs:demo:ui": "codecept-ui --app  -c node_modules/@codeceptjs/examples"
-    },
-    "devDependencies": {
-        "@codeceptjs/configure": "^0.7.0",
-        "@codeceptjs/examples": "^1.2.1",
-        "@codeceptjs/ui": "^0.4.6",
-        "codeceptjs": "^3.1.1",
-        "playwright": "^1.14.1",
-        "webdriverio": "^5.23.0"
-    }
+  "name": "codeceptjs-tests",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "test": "bash test_runner.bash",
+    "build": "npm update && npm install && npm install @wdio/selenium-standalone-service --save",
+    "codeceptjs": "codeceptjs run --steps",
+    "codeceptjs:headless": "HEADLESS=true codeceptjs run --steps",
+    "codeceptjs:ui": "codecept-ui --app",
+    "codeceptjs:demo": "codeceptjs run --steps -c node_modules/@codeceptjs/examples",
+    "codeceptjs:demo:headless": "HEADLESS=true codeceptjs run --steps -c node_modules/@codeceptjs/examples",
+    "codeceptjs:demo:ui": "codecept-ui --app  -c node_modules/@codeceptjs/examples"
+  },
+  "devDependencies": {
+    "@codeceptjs/examples": "^1.2.1",
+    "@codeceptjs/ui": "^0.4.6",
+    "@wdio/devtools-service": "^7.11.1",
+    "@wdio/selenium-standalone-service": "^7.10.1",
+    "allure-commandline": "^2.13.8",
+    "eslint": "^7.32.0",
+    "faker": "^5.5.3",
+    "playwright": "^1.14.1",
+    "prettier": "^2.3.2",
+    "standard": "^16.0.3",
+    "webdriverio": "^6.8.0"
+  },
+  "dependencies": {
+    "@wdio/cli": "^7.11.1",
+    "axios": "^0.21.3",
+    "chai": "^4.3.4",
+    "codeceptjs": "^3.1.1",
+    "codeceptjs-assert": "0.0.5",
+    "codeceptjs-chai": "^2.3.1",
+    "dotenv": "^10.0.0"
+  }
 }
